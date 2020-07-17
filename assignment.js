@@ -1,50 +1,42 @@
-/*
-feetToMile(feet) -> feet/5280
-woodCalculator(chair, table, bed)
-brickCalculator(brick_count)
-tinyFriends(names[])
-
-*/
 
 // Assignment - 01 -------------------------------   FeetToMile(feet) 
 function feetToMile(feet) {
-    const res = feet / 5280;
+    if (feet < 0) {
+        return console.log("Value Can't be negative!");
+    }
+
+    let res = feet / 5280;
+    console.log(`${feet} Feet is Equal to ${res} Mile`);
     return res;
 }
 
-// change value here
-const feet = 4;
-const output = feetToMile(feet);
-console.log(`${feet} Feet is Equal To ${output} Mile`);
+// Function call
+feetToMile(1);
 
 
 // Assignment - 02 ------------------------------   woodCalculator(chair, table, bed)
-function woodCalculator(chair, table, bed) {
-    let total = 0;
-    total = chair * 1 + table * 3 + bed * 5;
-    return total;
+function woodCalculator(chairCount, tableCount, bedCount) {
+    let totalWoodCost = 0;
+    totalWoodCost = chairCount * 1 + tableCount * 3 + bedCount * 5;
+
+    console.log(`For (chair,table,bed) (${chairCount}, ${tableCount}, ${bedCount}) Total Wood cost is = ${totalWoodCost}`);
+
+    return totalWoodCost;
 }
 
-let chairCount, tableCount, bedCount;
 
-// change values here
-chairCount = 1;
-tableCount = 2;
-bedCount = 4;
+// Function call
+woodCalculator(1, 2, 3);
 
-const totalWoodCost = woodCalculator(chairCount, tableCount, bedCount);
-
-console.log(`For (chair,table,bed) (${chairCount}, ${tableCount}, ${bedCount}) Total Wood cost is = ${totalWoodCost}`);
 
 
 // Assignment - 03 -----------------------------  brickCalculator(hight)
 
 function brickCalculator(hight) {
-    let feetCount = 0;
-    let totalBrick;
+    let feetCount = 0, totalBrick;
 
     if (hight < 0) {
-        return console.log("Hight can't be Negetive!")
+        return console.log("Hight can't be Negative!")
     }
     if (hight > 20) {
         feetCount += (hight - 20) * 10;
@@ -57,43 +49,53 @@ function brickCalculator(hight) {
     } else {
         feetCount += hight * 15;
     }
-    // console.log(feetCount);
+
     totalBrick = feetCount * 1000;
+
+    console.log(`For a ${hight}'th Building Brick is needed about ${totalBrick}`);
+
     return totalBrick;
 }
 
-// change value here
-let hightOfBuilding = 1;
-const totalBrick = brickCalculator(hightOfBuilding);
-
-console.log(`For a ${hightOfBuilding}'th Building Brick is needed about ${totalBrick}`);
+// function call
+brickCalculator(22);
 
 
-// Assignment - 04 -----------------------------
 
-let names = [
-    'himel',
-    'munna',
-    'abdullah',
-    'jhanker vai',
-    'liz',
-    'aa',
-];
+// Assignment - 04 -----------------------------  tinyFriends(names)
+
 
 function tinyFriends(names) {
-    let smallLength = 9999999;
-    let index;
+    if (names.length == 0) {
+        console.log(`Array can't be empty!`);
+        return 0;
+    }
+
+    let smallLength = names[0].length;
+    let index = 0;
+
+
     for (i = 0; i < names.length; i++) {
         if (names[i].length < smallLength) {
             smallLength = names[i].length;
             index = i;
         }
     }
+
     console.log(`Small Friend is '${names[index]}'`);
     return names[index];
 }
 
 
+let names = [
+    'himel',
+    'mo',
+    'abdullah',
+    'jhanker vai',
+    'liz',
+];
 
+
+// function call
 tinyFriends(names);
 
